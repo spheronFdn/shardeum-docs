@@ -8,14 +8,16 @@ import TabItem from '@theme/TabItem';
 
 ## What is Spheron?
 
-[Spheron](https://spheron.network/) is a decentralized cloud infrastructure platform that provides web application hosting, compute resources, and developer tooling for the decentralized web. With its comprehensive suite of services, including [SDKs](https://docs.spheron.network/sdk/) and [CLI](https://docs.spheron.network/cli/), Spheron allows developers and organizations to deploy, manage, and scale applications on a distributed network, leveraging the benefits of decentralization. It also incorporates features like [Dedicated Gateways](https://docs.spheron.network/gateways/) to enhance access and reliability when serving content on the IPFS network. Overall, Spheron offers a comprehensive solution for building and running decentralized applications in a secure and scalable manner.
+[Spheron](https://spheron.network/) is a game-changing solution revolutionizing decentralized application (dApp) infrastructure. With its comprehensive set of tools and services rooted in Web3 Infra, Spheron empowers developers to meet the dynamic demands of the digital landscape. Going beyond traditional Web2 infrastructures, Spheron offers a wide range of services including web hosting, storage, and compute capabilities, serving as a vital component in the Web3 ecosystem. Its exceptional performance not only rivals Web2 counterparts but also showcases the potential of Web3 technology for the next generation of applications.
+
+> Learn more about Spheron through [our documentation](https://docs.spheron.network/).
 
 ## How to deploy static apps on Spheron?
 
 Deploying static apps on Spheron is a straightforward process. Follow these steps to deploy your static apps on Spheron:
 
 1. **Connect your Git Provider:**<br/>
-   Connecting your Git provider allows Spheron to sync your repositories and trigger deployments whenever new updates are made. Spheron supports the following Git providers: [Github](https://github.com/), [Gitlab](https://about.gitlab.com/), and [Bitbucket](https://bitbucket.org/).
+   Connecting your Git provider allows Spheron to sync your repositories and trigger deployments whenever new updates are made. Spheron supports the following [Git providers](https://docs.spheron.network/static/deployment/logs/): Github, Gitlab, and Bitbucket.
 
 2. **Set up your Project:**<br/>
    Create a new project on Spheron and choose your desired app repository for deployment.
