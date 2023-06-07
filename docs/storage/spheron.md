@@ -68,7 +68,186 @@ Deploying compute instances on Spheron is simple and effortless, whether you're 
 
 ## How to upload to IPFS using Spheron SDK?
 
-## How to Spheron CLI?
+### 1. Spheron Storage SDK (for Nodejs environments)
+
+### Installation
+
+```sh
+npm i @spheron/storage
+```
+
+### Usage
+
+```js
+import { SpheronClient, ProtocolEnum } from "@spheron/storage";
+
+const client = new SpheronClient({ token });
+
+let currentlyUploaded = 0;
+
+const { uploadId, bucketId, protocolLink, dynamicLinks } = await client.upload(
+  filePath,
+  {
+    protocol: ProtocolEnum.IPFS,
+    name,
+    onUploadInitiated: (uploadId) => {
+      console.log(`Upload with id ${uploadId} started...`);
+    },
+    onChunkUploaded: (uploadedSize, totalSize) => {
+      currentlyUploaded += uploadedSize;
+      console.log(`Uploaded ${currentlyUploaded} of ${totalSize} Bytes.`);
+    },
+  }
+);
+```
+
+> Checkout our [Storage SDK Documentation](https://docs.spheron.network/sdk/storage/) for more info.
+
+### 2. Spheron Browser Upload SDK (for Browser environments)
+
+### Installation
+
+```sh
+npm i @spheron/browser-upload
+```
+
+### Usage
+
+### Server
+
+You have to set up a web server with an endpoint that will be used by the frontend to fetch the token for upload.
+
+```js
+import { SpheronClient, ProtocolEnum } from "@spheron/storage";
+
+...
+
+app.get("/initiate-upload", async (req, res, next) => {
+  try {
+    const bucketName = "example-browser-upload"; // use your preferred name
+    const protocol = ProtocolEnum.IPFS; // use your preferred protocol
+    const token = process.env.SPHERON_TOKEN; // add your access token in .env or paste it here
+
+    const client = new SpheronClient({ token });
+
+    const { uploadToken } = await client.createSingleUploadToken({
+      name: bucketName,
+      protocol,
+    });
+
+    res.status(200).json({
+      uploadToken,
+    });
+  } catch (error) {
+    console.error(error);
+    next(error);
+  }
+});
+```
+
+### Client
+
+You have to send a request to your server to create the uploadToken that will be used to upload files from the browser.
+
+```js
+import { upload } from "@spheron/browser-upload";
+
+...
+
+const response = await fetch(`<BACKEND_URL>/initiate-upload`); // get the temporary access token from server
+const resJson = await response.json();
+const token =  resJson.uploadToken;
+
+let currentlyUploaded = 0;
+
+const { uploadId, bucketId, protocolLink, dynamicLinks } = await upload(files, {
+  token,
+  onChunkUploaded: (uploadedSize, totalSize) => {
+    currentlyUploaded += uploadedSize;
+    console.log(`Uploaded ${currentlyUploaded} of ${totalSize} Bytes.`);
+  },
+});
+
+...
+```
+
+> Checkout our [Browser Upload SDK](https://docs.spheron.network/sdk/browser/) for more info.
+
+## How to create and deploy apps using Spheron CLI?
+
+## Installation
+
+#### For Mac and Linux
+
+To install the Spheron CLI, run the following command in your terminal:
+
+```
+sudo npm install -g @spheron/cli
+```
+
+#### For Windows
+
+To install the Spheron CLI, open your terminal as administrator mode and run the following command:
+
+```
+npm install -g @spheron/cli
+```
+
+## Usage
+
+### spheron init
+
+The `spheron init` command allows you to initialize a new Spheron project. A `spheron.json` file is created in your current path that describes your project. It will be utilized by the `spheron publish` command.
+
+#### Usage
+
+```sh
+spheron init
+```
+
+Upon running this command, a prompter will appear that will allow you to select protocol, add project name, add path, and select framework. Here is how it will look:
+
+```sh
+? Project name: (Code)
+? Upload protocol: (Use arrow keys)
+❯ Arweave
+  Filecoin
+  IPFS
+```
+
+### spheron publish
+
+The `spheron publish` command allows you to upload your project using the configuration that is described in the `spheron.json` file of your project.
+
+#### Usage
+
+```sh
+spheron publish
+```
+
+<Callout type="warning">
+  Make sure that you create a production build before running the `spheron
+  publish` command.
+</Callout>
+
+Here is an example of how the result will look:
+
+```sh
+Spheron CLI 1.0.7
+
+Publishing your dapp to IPFS 🚀
+Uploading directory build
+Upload started, ID of deployment: 643fce207c3c7a0012df33a7
+⠙ Uploading to IPFS
+✓ Success! Upload finished !
+Here are upload details:
+Upload ID: 643fce207c3c7a0012df33a7
+Bucket ID: 643fce207c3c7a0012df33a5
+Protocol Link: https://bafybeicrjwhn6nifl7tcuhkcitquvpumj426qa7r7ppcya5skmqly5n2la.ipfs.sphn.link
+Dynamic Links: https://testapp-edab50.spheron.app
+```
+
+> Checkout our [CLI Documentation](https://docs.spheron.network/cli/) for more info.
 
 ## How to view and retrieve content from IPFS using Spheron?
 
