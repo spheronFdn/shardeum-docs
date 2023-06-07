@@ -17,8 +17,8 @@ Deploying static apps on Spheron is a straightforward process. Follow these step
 1. **Connect your Git Provider:**<br/>
    Connecting your Git provider allows Spheron to sync your repositories and trigger deployments whenever new updates are made. Spheron supports the following Git providers: [Github](https://github.com/), [Gitlab](https://about.gitlab.com/), and [Bitbucket](https://bitbucket.org/).
 
-2. **Set up your project:**<br/>
-   Create a new project on the Spheron and choose your desired app repository for deployment.
+2. **Set up your Project:**<br/>
+   Create a new project on Spheron and choose your desired app repository for deployment.
 
 3. **Select deployment protocol:**<br/>
    Select your desired protocol for hosting your static app. Spheron supports the following protocols: **Arweave**, **Filecoin**, and **IPFS**.
@@ -35,6 +35,32 @@ Deploying static apps on Spheron is a straightforward process. Follow these step
 > Checkout our [Framework Guide](https://docs.spheron.network/framework-guide/) for more info.
 
 ## How to deploy dynamic-apps/servers on Spheron?
+
+Deploying compute instances on Spheron is simple and effortless, whether you're using a Docker image from Docker Hub or deploying a marketplace app. Follow these steps to deploy your compute instance on Spheron:
+
+1. **Set up your Cluster:**<br/>
+   Create a new cluster on Spheron by selecting **Import from Docker Hub** or **Start from Marketplace App**.
+
+2. **For Docker Hub:**<br/>
+
+   1. Enter the name for your cluster and docker image.
+   2. Then, Add the tag and **Click Next**.
+   3. Select the instance plan that suits your needs and **Click Select Plan**.
+   4. Create new **Port Mapping**. Add the container port, and Select the exposed port you want to map it to.
+   5. Add **Environment Variables** if any. Use the **Secret Key toggle** if the value is a secret key. When you enable the secret key toggle, it will not be saved in the database.
+   6. Select your preferred **Region** if any. If you do not add a region, the container will be deployed in any region.
+   7. You can add advanced configuration if required.
+   8. **Click Deploy** to initiate deployment.
+
+3. **For Marketplace App:**<br/>
+
+   1. Pick your desired template from the marketplace.
+   2. Spheron will automatically select the recommended plan for the specific template.
+   3. If you want to change the plan, **Click Change Plan**.
+   4. Select the instance plan that suits your needs, and **Click Select Plan**.
+   5. Select your preferred **Region** if any. If you do not add a region, the container will be deployed in any region.
+   6. You can add additional configuration as required.
+   7. **Click Deploy** to initiate deployment.
 
 ## How to upload to IPFS using Spheron SDK?
 
