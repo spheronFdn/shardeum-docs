@@ -251,4 +251,41 @@ Dynamic Links: https://testapp-edab50.spheron.app
 
 ## How to view and retrieve content from IPFS using Spheron?
 
-## Contact Us
+### Dedicated Gateways
+
+[Dedicated Gateways](https://docs.spheron.network/gateways/) are IPFS gateways specifically designed to enhance access to pinned content across the network by offering faster speeds and increased rate limits.
+
+Using Dedicated Gateways offers several benefits:
+
+- Improved Speed
+- Increased Rate Limits
+- Whitelabeling Gateway
+- Serve Content from Any IPFS Node
+
+### Create a Dedicated Gateway
+
+Follow these steps to create a Dedicated Gateway:
+
+1. Log in to Spheron and navigate to the **Gateways** section in the navbar.
+2. Click **Generate** to create a new gateway.
+3. Enter a name for your gateway and Click **Create**.
+
+### How to Use Your Gateway?
+
+To access content through your Dedicated Gateway, simply follow these steps:
+
+1. Obtain the CID (Content Identifier) of the file you wish to view.
+2. Append the CID to your gateway URL in the following format:
+
+```
+https://{gateway-name}.spheron.link/ipfs/{cid}
+```
+
+> Checkout our [Gateway Documentation](https://docs.spheron.network/gateways/) for more info.
+
+## Further Resources
+
+- Visit [our platform](https://spheron.network/) to learn more.
+- Access our comprehensive [documentation](https://docs.spheron.network/) for detailed information.
+- Follow us on [Twitter](https://twitter.com/SpheronFDN) for the latest updates and news.
+- Join our [Discord community](https://discord.com/invite/ahxuCtm) for dedicated support and assistance.
