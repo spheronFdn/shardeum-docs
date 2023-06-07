@@ -62,6 +62,8 @@ Deploying compute instances on Spheron is simple and effortless, whether you're 
    6. You can add additional configuration as required.
    7. **Click Deploy** to initiate deployment.
 
+> Checkout our [Compute Documentation](https://docs.spheron.network/compute/cluster/) for more info.
+
 ## How to upload to IPFS using Spheron SDK?
 
 ## How to Spheron CLI?
