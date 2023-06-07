@@ -41,3 +41,5 @@ Deploying static apps on Spheron is a straightforward process. Follow these step
 ## How to Spheron CLI?
 
 ## How to view and retrieve content from IPFS using Spheron?
+
+## Contact Us
